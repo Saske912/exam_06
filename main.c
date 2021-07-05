@@ -29,6 +29,19 @@ char * reverse(char *port )
     return ret;
 }
 
+void loop(int sock)
+{
+    fd_set  read;
+    int     fds[1000];
+
+    while (1)
+    {
+        memset(fds, 0, sizeof(fds));
+        FD_ZERO(&read);
+        FD_SET(sock, &read);
+    }
+}
+
 int main(int ac, char **av)
 {
     int     sock;
@@ -55,6 +68,7 @@ int main(int ac, char **av)
         ret = listen(sock, 128);
         if (ret == -1)
             error_exit("Fatal error\n");
+        loop(sock);
     }
     else
         error_exit("Wrong number of arguments\n");
