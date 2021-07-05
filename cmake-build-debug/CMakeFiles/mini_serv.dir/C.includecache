@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/pfile/mini_serv/main.c
+stdio.h
+-
+sys/socket.h
+-
+unistd.h
+-
+string.h
+-
+stdlib.h
+-
+fcntl.h
+-
+sys/types.h
+-
+netdb.h
+-
+arpa/inet.h
+-
+
