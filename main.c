@@ -32,13 +32,14 @@ char * reverse(char *port )
 void loop(int sock)
 {
     fd_set  read;
-    int     fds[1000];
+    int     fds[500];
 
+    memset(fds, 0, sizeof(fds));
     while (1)
     {
-        memset(fds, 0, sizeof(fds));
         FD_ZERO(&read);
         FD_SET(sock, &read);
+        while ()
     }
 }
 
