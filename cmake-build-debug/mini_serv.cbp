@@ -78,6 +78,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/pfile/mini_serv/header.h">
+			<Option target="mini_serv"/>
+		</Unit>
+		<Unit filename="/Users/pfile/mini_serv/list.c">
+			<Option target="mini_serv"/>
+		</Unit>
 		<Unit filename="/Users/pfile/mini_serv/main.c">
 			<Option target="mini_serv"/>
 		</Unit>

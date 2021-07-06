@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/mini_serv.dir/list.c.o"
   "CMakeFiles/mini_serv.dir/main.c.o"
   "mini_serv"
   "mini_serv.pdb"

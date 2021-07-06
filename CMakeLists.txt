@@ -3,4 +3,4 @@ project(mini_serv C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(mini_serv main.c)
+add_executable(mini_serv main.c list.c header.h)

@@ -1,15 +1,15 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <netdb.h>
+#include "header.h"
 
 void error_exit(char *error)
 {
     write(2, error, strlen(error));
     exit(1);
+}
+
+void check_fatal(void *buf)
+{
+    if (!buf)
+        error_exit("Fatal error\n");
 }
 
 char * reverse(char *port )
@@ -33,13 +33,63 @@ void loop(int sock)
 {
     fd_set  read;
     int     fds[500];
+    t_cli   head;
+    t_cli   *temp;
+    struct timeval tv;
+    int     ret;
+    struct sockaddr addr;
 
+    tv.tv_sec = 3;
+    tv.tv_usec = 0;
+    head.next = NULL;
+    head.sock = sock;
+    head.id = 0;
     memset(fds, 0, sizeof(fds));
     while (1)
     {
+        head.max_fd = 0;
+        temp = &head;
         FD_ZERO(&read);
-        FD_SET(sock, &read);
-        while ()
+        while (temp)
+        {
+            FD_SET(temp->sock, &read);
+            if (temp->sock > head.max_fd)
+                head.max_fd = temp->sock;
+            temp = temp->next;
+        }
+        ret = select(head.max_fd + 1, &read, NULL, NULL, &tv);
+        if (ret == -1)
+            continue ;
+        temp = &head;
+        if ( FD_ISSET(temp->sock, &read))
+        {
+            ret = accept(temp->sock, &addr, sizeof(addr));
+            if (ret != -1)
+            {
+                add_to_buffers( "server: client %d just arrived\n", head.id, head.next );
+                lst_add_back(temp, ret, &temp->id);
+            }
+        }
+        while (temp->next)
+        {
+            temp = temp->next;
+            if ( FD_ISSET(temp->sock, &read))
+            {
+                ret = recv(temp->sock, temp->receive_buf, 199999, 0);
+                if (ret == 0)
+                {
+
+                }
+                else if (ret == -1)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+        }
     }
 }
 
