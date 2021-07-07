@@ -58,38 +58,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /home/pfile/Public/clion-2021.1.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /home/pfile/Public/clion-2021.1.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/pfile/mini_serv
+CMAKE_SOURCE_DIR = /home/pfile/exam6
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/pfile/mini_serv/cmake-build-debug
+CMAKE_BINARY_DIR = /home/pfile/exam6/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/pfile/Public/clion-2021.1.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -97,11 +86,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/pfile/Public/clion-2021.1.2/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pfile/mini_serv/cmake-build-debug/CMakeFiles /Users/pfile/mini_serv/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pfile/exam6/cmake-build-debug/CMakeFiles /home/pfile/exam6/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pfile/mini_serv/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pfile/exam6/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -141,6 +141,33 @@ mini_serv: cmake_check_build_system
 mini_serv/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mini_serv.dir/build.make CMakeFiles/mini_serv.dir/build
 .PHONY : mini_serv/fast
+
+buffers.o: buffers.c.o
+
+.PHONY : buffers.o
+
+# target to build an object file
+buffers.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mini_serv.dir/build.make CMakeFiles/mini_serv.dir/buffers.c.o
+.PHONY : buffers.c.o
+
+buffers.i: buffers.c.i
+
+.PHONY : buffers.i
+
+# target to preprocess a source file
+buffers.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mini_serv.dir/build.make CMakeFiles/mini_serv.dir/buffers.c.i
+.PHONY : buffers.c.i
+
+buffers.s: buffers.c.s
+
+.PHONY : buffers.s
+
+# target to generate assembly for a file
+buffers.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mini_serv.dir/build.make CMakeFiles/mini_serv.dir/buffers.c.s
+.PHONY : buffers.c.s
 
 list.o: list.c.o
 
@@ -205,6 +232,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... mini_serv"
+	@echo "... buffers.o"
+	@echo "... buffers.i"
+	@echo "... buffers.s"
 	@echo "... list.o"
 	@echo "... list.i"
 	@echo "... list.s"

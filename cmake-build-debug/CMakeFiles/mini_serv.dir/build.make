@@ -53,19 +53,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /home/pfile/Public/clion-2021.1.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /home/pfile/Public/clion-2021.1.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/pfile/mini_serv
+CMAKE_SOURCE_DIR = /home/pfile/exam6
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/pfile/mini_serv/cmake-build-debug
+CMAKE_BINARY_DIR = /home/pfile/exam6/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mini_serv.dir/depend.make
@@ -78,43 +78,58 @@ include CMakeFiles/mini_serv.dir/flags.make
 
 CMakeFiles/mini_serv.dir/main.c.o: CMakeFiles/mini_serv.dir/flags.make
 CMakeFiles/mini_serv.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pfile/mini_serv/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mini_serv.dir/main.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mini_serv.dir/main.c.o -c /Users/pfile/mini_serv/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pfile/exam6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mini_serv.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mini_serv.dir/main.c.o -c /home/pfile/exam6/main.c
 
 CMakeFiles/mini_serv.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mini_serv.dir/main.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/pfile/mini_serv/main.c > CMakeFiles/mini_serv.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pfile/exam6/main.c > CMakeFiles/mini_serv.dir/main.c.i
 
 CMakeFiles/mini_serv.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mini_serv.dir/main.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/pfile/mini_serv/main.c -o CMakeFiles/mini_serv.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pfile/exam6/main.c -o CMakeFiles/mini_serv.dir/main.c.s
 
 CMakeFiles/mini_serv.dir/list.c.o: CMakeFiles/mini_serv.dir/flags.make
 CMakeFiles/mini_serv.dir/list.c.o: ../list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pfile/mini_serv/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mini_serv.dir/list.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mini_serv.dir/list.c.o -c /Users/pfile/mini_serv/list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pfile/exam6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mini_serv.dir/list.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mini_serv.dir/list.c.o -c /home/pfile/exam6/list.c
 
 CMakeFiles/mini_serv.dir/list.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mini_serv.dir/list.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/pfile/mini_serv/list.c > CMakeFiles/mini_serv.dir/list.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pfile/exam6/list.c > CMakeFiles/mini_serv.dir/list.c.i
 
 CMakeFiles/mini_serv.dir/list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mini_serv.dir/list.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/pfile/mini_serv/list.c -o CMakeFiles/mini_serv.dir/list.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pfile/exam6/list.c -o CMakeFiles/mini_serv.dir/list.c.s
+
+CMakeFiles/mini_serv.dir/buffers.c.o: CMakeFiles/mini_serv.dir/flags.make
+CMakeFiles/mini_serv.dir/buffers.c.o: ../buffers.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pfile/exam6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/mini_serv.dir/buffers.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mini_serv.dir/buffers.c.o -c /home/pfile/exam6/buffers.c
+
+CMakeFiles/mini_serv.dir/buffers.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mini_serv.dir/buffers.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pfile/exam6/buffers.c > CMakeFiles/mini_serv.dir/buffers.c.i
+
+CMakeFiles/mini_serv.dir/buffers.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mini_serv.dir/buffers.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pfile/exam6/buffers.c -o CMakeFiles/mini_serv.dir/buffers.c.s
 
 # Object files for target mini_serv
 mini_serv_OBJECTS = \
 "CMakeFiles/mini_serv.dir/main.c.o" \
-"CMakeFiles/mini_serv.dir/list.c.o"
+"CMakeFiles/mini_serv.dir/list.c.o" \
+"CMakeFiles/mini_serv.dir/buffers.c.o"
 
 # External object files for target mini_serv
 mini_serv_EXTERNAL_OBJECTS =
 
 mini_serv: CMakeFiles/mini_serv.dir/main.c.o
 mini_serv: CMakeFiles/mini_serv.dir/list.c.o
+mini_serv: CMakeFiles/mini_serv.dir/buffers.c.o
 mini_serv: CMakeFiles/mini_serv.dir/build.make
 mini_serv: CMakeFiles/mini_serv.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/pfile/mini_serv/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable mini_serv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pfile/exam6/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable mini_serv"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mini_serv.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -127,6 +142,6 @@ CMakeFiles/mini_serv.dir/clean:
 .PHONY : CMakeFiles/mini_serv.dir/clean
 
 CMakeFiles/mini_serv.dir/depend:
-	cd /Users/pfile/mini_serv/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/pfile/mini_serv /Users/pfile/mini_serv /Users/pfile/mini_serv/cmake-build-debug /Users/pfile/mini_serv/cmake-build-debug /Users/pfile/mini_serv/cmake-build-debug/CMakeFiles/mini_serv.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pfile/exam6/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pfile/exam6 /home/pfile/exam6 /home/pfile/exam6/cmake-build-debug /home/pfile/exam6/cmake-build-debug /home/pfile/exam6/cmake-build-debug/CMakeFiles/mini_serv.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mini_serv.dir/depend
 

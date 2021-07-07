@@ -1,3 +1,3 @@
-/Users/pfile/mini_serv/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/pfile/mini_serv/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/pfile/mini_serv/cmake-build-debug/CMakeFiles/mini_serv.dir
+/home/pfile/exam6/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/pfile/exam6/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/pfile/exam6/cmake-build-debug/CMakeFiles/mini_serv.dir

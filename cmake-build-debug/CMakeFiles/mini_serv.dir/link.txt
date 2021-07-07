@@ -1,1 +1,1 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -mmacosx-version-min=10.14 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/mini_serv.dir/main.c.o CMakeFiles/mini_serv.dir/list.c.o -o mini_serv 
+/usr/bin/cc -g CMakeFiles/mini_serv.dir/main.c.o CMakeFiles/mini_serv.dir/list.c.o CMakeFiles/mini_serv.dir/buffers.c.o -o mini_serv 

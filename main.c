@@ -32,19 +32,22 @@ char * reverse(char *port )
 void loop(int sock)
 {
     fd_set  read;
-    int     fds[500];
     t_cli   head;
     t_cli   *temp;
     struct timeval tv;
     int     ret;
     struct sockaddr addr;
+    char    buffer[20000];
+    char    small_buffer[400];
+    socklen_t len = sizeof(addr);
+    char    *parsed_buffer;
+    int     error = 0;
 
     tv.tv_sec = 3;
     tv.tv_usec = 0;
     head.next = NULL;
     head.sock = sock;
     head.id = 0;
-    memset(fds, 0, sizeof(fds));
     while (1)
     {
         head.max_fd = 0;
@@ -63,32 +66,68 @@ void loop(int sock)
         temp = &head;
         if ( FD_ISSET(temp->sock, &read))
         {
-            ret = accept(temp->sock, &addr, sizeof(addr));
+            ret = accept(temp->sock, &addr, &len);
             if (ret != -1)
             {
-                add_to_buffers( "server: client %d just arrived\n", head.id, head.next );
-                lst_add_back(temp, ret, &temp->id);
+                lst_add_back(temp, ret, &head.id);
+                bzero(small_buffer, 400);
+                sprintf(small_buffer, "server: client %d just arrived\n", head.id);
+                add_to_buffers( small_buffer, head.next, ret );
             }
         }
-        while (temp->next)
+        temp = head.next;
+        while (temp)
         {
-            temp = temp->next;
-            if ( FD_ISSET(temp->sock, &read))
+            if (getsockopt(temp->sock, SOL_SOCKET, SO_ERROR, &error, &len))
             {
-                ret = recv(temp->sock, temp->receive_buf, 199999, 0);
-                if (ret == 0)
+                if (error == ECONNRESET || error == ECONNREFUSED || error == ECONNABORTED)
                 {
-
-                }
-                else if (ret == -1)
-                {
-
-                }
-                else
-                {
-
+                    bzero(small_buffer, 400);
+                    sprintf(small_buffer, "server: client %d just left\n", temp->id);
+                    add_to_buffers( small_buffer, head.next, temp->sock );
+                    del_one(&head, temp);
+                    continue ;
                 }
             }
+            if ( FD_ISSET(temp->sock, &read))
+            {
+                bzero(buffer, 20000);
+                ret = recv(temp->sock, buffer, 19999, 0);
+                if (ret == 0)
+                {
+                    bzero(small_buffer, 400);
+                    sprintf(small_buffer, "server: client %d just left\n", temp->id);
+                    add_to_buffers( small_buffer, head.next, temp->sock );
+                    del_one(&head, temp);
+                    continue ;
+                }
+                else if (ret == -1)
+                    continue;
+                else
+                {
+                    parsed_buffer = parse_buff(buffer, temp->id, &temp->receive_buf);
+                    add_to_buffers(parsed_buffer, head.next, temp->sock);
+                    free(parsed_buffer);
+                }
+            }
+            temp = temp->next;
+        }
+        temp = head.next;
+        while (temp)
+        {
+            if (temp->send_buf)
+            {
+                ret = send(temp->sock, temp->send_buf, strlen(temp->send_buf), 0);
+                if (ret == -1)
+                    continue;
+                else if (ret != strlen(temp->send_buf))
+                {
+                    cut(&temp->send_buf, ret);
+                }
+                else
+                    free(temp->send_buf);
+            }
+            temp = temp->next;
         }
     }
 }

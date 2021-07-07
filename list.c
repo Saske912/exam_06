@@ -11,7 +11,6 @@ t_cli *new_cli(int id, int sock)
         error_exit("Fatal error\n");
     cli->sock = sock;
     cli->send_buf = NULL;
-    cli->receive_buf = NULL;
     cli->id = id;
     cli->next = NULL;
     cli->max_fd = 0;
@@ -27,35 +26,17 @@ void lst_add_back(t_cli *temp, int ret, int *id)
     t->next = new;
 }
 
-void add_to_buffers( const char *msg, int new_id, t_cli *point)
+void    del_one(t_cli *head, t_cli *del)
 {
-    int     len_int = 0;
-    int     temp = new_id;
-    char    *buf;
-
-    while (temp > 9)
-    {
-        temp /= 10;
-        len_int++;
-    }
-    buf = calloc(1, strlen(msg) - 2 + 1 + len_int);
-    if (!buf)
-        error_exit("Fatal error\n");
-    sprintf(buf, msg, new_id);
-    while (point)
-    {
-        if (point->send_buf)
-        {
-            point->send_buf = realloc( point->send_buf, strlen( point->send_buf) + strlen( buf) + 1);
-            check_fatal(point->send_buf);
-            strcat( point->send_buf, buf);
-        }
-        else
-        {
-            point->send_buf = calloc( 1, strlen( buf) + 1);
-            check_fatal(point->send_buf);
-            strcpy( point->send_buf, buf);
-        }
-        point = point->next;
-    }
+    t_cli *tmp = head;
+    t_cli *tmp2;
+    while (tmp->next != del)
+        tmp = tmp->next;
+    tmp2 = tmp->next;
+    tmp->next = tmp2->next;
+    if (tmp2->send_buf)
+        free(tmp2->send_buf);
+    if (tmp2->receive_buf)
+        free(tmp2->receive_buf);
+    free(tmp2);
 }
